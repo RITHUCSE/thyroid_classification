@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Classifier</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .form-container {
+            width: 45%;
+            text-align: left;
+            margin: 10px;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 85%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .gender-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .gender-checkboxes label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        body {
+            background-image: url('t3.jpg'); /* Specify the URL of your background image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif; /* Adding a fallback font */
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Thyroid Classifier</h1>
+    <div class="container">
+        <div class="form-container">
+            <h2>Patient Details</h2>
+            <form action="/predict" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter name"><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter age"><br>
+                <label class="gender-label">Gender:</label>
+                <div class="gender-checkboxes">
+                    <label><input type="checkbox" name="gender" value="male"> Male</label>
+                    <label><input type="checkbox" name="gender" value="female"> Female</label>
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>Patient Report Details</h2>
+            <form action="/predict" method="POST">
+                <label for="t3">T3 Level:</label>
+                <input type="number" id="t3" name="t3" placeholder="Enter T3 level" step="0.1"><br>
+                <label for="tsh">TSH Level:</label>
+                <input type="number" id="tsh" name="tsh" placeholder="Enter TSH level" step="0.1"><br>
+                <label for="tt4">TT4 Level:</label>
+                <input type="number" id="tt4" name="tt4" placeholder="Enter TT4 level" step="0.1"><br>
+                <label for="t4u">T4U Level:</label>
+                <input type="number" id="t4u" name="t4u" placeholder="Enter T4U level" step="0.1"><br>
+                <label for="fti">FTI Level:</label>
+                <input type="number" id="fti" name="fti" placeholder="Enter FTI level" step="0.1"><br>
+                <button onClick="submit"><a href='res.html'/>Classify My Thyroid</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
